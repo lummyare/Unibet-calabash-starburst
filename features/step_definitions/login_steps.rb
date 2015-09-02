@@ -1,15 +1,17 @@
 Given(/^I land on Login screen$/) do
-
+  sleep 2
   k=set_location place:'Tower of London'
   if
-    k !=true
-  # set_location place:'London' ==true
+  k !=true
+    # set_location place:'London' ==true
     fail 'Location not set to London'
-  sleep 2
-@loginPage.verify_logIn_page "Log in with your Unibet account"
-  sleep 1
   else
- puts 'Location set success'
+    puts 'Location set success'
+    sleep 2
+    touch "label marked:'Log in'"
+    sleep 2
+    @loginPage.verify_logIn_page "Log in with your Unibet account"
+    sleep 1
   end
 
 end
@@ -69,6 +71,8 @@ Then(/^Log in should be successful$/) do
 end
 
 Given(/^i forgot my password$/) do
+  sleep 2
+  touch "label marked:'Log in'"
   sleep 1
   check_element_exists "* marked:'Forgot?'"
 
@@ -118,6 +122,6 @@ end
 
 Then(/^I should go back to Log in Screen$/) do
   sleep 2
-  @loginPage.verify_logIn_page "Log in with your Unibet account"
+  @loginPage.verify_logIn_page "Register"
   sleep 1
 end
