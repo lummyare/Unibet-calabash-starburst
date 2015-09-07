@@ -1,4 +1,6 @@
 Given(/^I land on Login screen$/) do
+  2.times {
+    set_location(latitude: 51.50722, longitude: -0.12750) }
   sleep 2
   k=set_location place:'Tower of London'
   if
@@ -124,4 +126,8 @@ Then(/^I should go back to Log in Screen$/) do
   sleep 2
   @loginPage.verify_logIn_page "Register"
   sleep 1
+end
+
+Given(/^I set location to London$/) do
+  set_location latitude: 51.50722, longitude: -0.12750
 end
