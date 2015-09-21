@@ -1,4 +1,4 @@
-@login
+@run_all @login
 Feature: App Login
 
   Background:
